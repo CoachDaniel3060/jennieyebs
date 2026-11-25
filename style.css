@@ -1344,3 +1344,122 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ==================================
+   JENNIEYEBS - PREMIUM DESIGN FINISH
+================================== */
+
+:root {
+  --accent: #c5a46d;
+}
+
+/* Cleaner brand name in the header */
+.brand-name {
+  font-size: 32px;
+  letter-spacing: 2.5px;
+  color: #171717;
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: #b18b50;
+  margin-top: 7px;
+}
+
+/* More polished announcement bar */
+.announcement-bar {
+  padding: 11px 15px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+/* Better hero typography and spacing */
+.hero {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.hero-content {
+  max-width: 590px;
+}
+
+.hero h1 {
+  font-size: clamp(44px, 5vw, 66px);
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+}
+
+.hero-content > p {
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 470px;
+  color: #66615a;
+}
+
+.eyebrow {
+  letter-spacing: 3px;
+  color: #ad8750;
+}
+
+/* Elegant brand name in footer */
+.footer-logo {
+  color: #d0ad72;
+  font-size: 32px;
+  letter-spacing: 2.5px;
+}
+
+.footer-logo:hover {
+  color: #e7c995;
+}
+
+/* Gold footer credit */
+.footer-bottom strong {
+  color: #d6b477;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.footer-bottom p {
+  color: #d0c8bc;
+  letter-spacing: 1.2px;
+}
+
+/* Gold detail on footer divider */
+.footer-bottom {
+  border-top: 1px solid rgba(214, 180, 119, 0.35);
+}
+
+/* Mobile adjustments */
+@media (max-width: 760px) {
+  .brand-name {
+    font-size: 25px;
+    letter-spacing: 1.8px;
+  }
+
+  .brand-tagline {
+    font-size: 7px;
+    letter-spacing: 1.8px;
+  }
+
+  .hero {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    line-height: 1.18;
+  }
+
+  .footer-logo {
+    font-size: 27px;
+  }
+
+  .footer-bottom strong {
+    display: inline-block;
+    margin-top: 4px;
+  }
+}
