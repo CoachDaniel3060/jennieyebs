@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="Discover fashion, footwear, accessories and custom stitching at JENNIEYEBS.">
-  <title>JENNIEYEBS | Fashion & Style</title>
+  <meta name="description" content="JENNIEYEBS — fashion, footwear, accessories and custom stitching in Ghana.">
+  <title>JENNIEYEBS | Style With Confidence</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23171717'/%3E%3Ctext x='50' y='65' font-size='43' text-anchor='middle' fill='%23d6b477' font-family='Georgia'%3EJY%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,28 +19,32 @@
 <body>
 
   <div class="announcement-bar">
-    STYLE THAT SPEAKS. QUALITY THAT LASTS.
-    <span>WELCOME TO JENNIEYEBS</span>
+    <span id="announcementText">STYLE THAT SPEAKS. QUALITY THAT LASTS.</span>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
+
       <a href="#home" class="brand">
-        <span class="brand-name">JENNIEYEBS</span>
-        <span class="brand-tagline">FASHION • FOOTWEAR • STYLE</span>
+        <span class="brand-mark">JY</span>
+        <span class="brand-copy">
+          <span class="brand-name">JENNIEYEBS</span>
+          <span class="brand-tagline">STYLE • ELEGANCE • CONFIDENCE</span>
+        </span>
       </a>
 
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="mainNav">
         <a href="#home">Home</a>
         <a href="#shop">Shop</a>
         <a href="#collections">Collections</a>
         <a href="#stitching">Custom Stitching</a>
         <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="header-actions">
-        <button class="header-cart" id="openCart" type="button">
+        <button class="header-cart" id="cartButton" type="button">
           BAG <span class="cart-count" id="cartCount">0</span>
         </button>
 
@@ -47,14 +52,18 @@
           aria-label="Open navigation" aria-expanded="false">☰</button>
       </div>
     </div>
+
+    <div class="local-time">
+      <span>GHANA LOCAL TIME</span>
+      <strong id="ghanaClock">Loading time...</strong>
+    </div>
   </header>
 
   <main>
 
-    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <span class="eyebrow">THE JENNIEYEBS EXPERIENCE</span>
+        <span class="eyebrow">WELCOME TO JENNIEYEBS</span>
         <h1>Dress Beautifully.<br><span>Walk Confidently.</span></h1>
         <p>
           Discover fashion that expresses your personality.
@@ -73,8 +82,7 @@
       <div class="hero-image">
         <img
           src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85"
-          alt="Fashion collection"
-          onerror="this.src='https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85'">
+          alt="Fashion collection">
         <div class="hero-image-caption">
           <span>THE NEW STYLE EDIT</span>
           <strong>Fashion for every moment.</strong>
@@ -82,7 +90,6 @@
       </div>
     </section>
 
-    <!-- BENEFITS -->
     <section class="benefits">
       <div class="benefit-item">
         <span class="benefit-icon">✦</span>
@@ -102,7 +109,6 @@
       </div>
     </section>
 
-    <!-- SHOP -->
     <section class="shop-section section-padding" id="shop">
       <div class="section-heading">
         <span class="eyebrow">FIND YOUR LOOK</span>
@@ -112,16 +118,15 @@
 
       <div class="shop-toolbar">
         <div class="filter-buttons" id="filterButtons">
-          <button class="active" type="button" data-category="all">ALL</button>
-          <button type="button" data-category="clothing">CLOTHING</button>
-          <button type="button" data-category="footwear">FOOTWEAR</button>
-          <button type="button" data-category="accessories">ACCESSORIES</button>
+          <button class="filter-btn active" type="button" data-filter="all">ALL</button>
+          <button class="filter-btn" type="button" data-filter="clothing">CLOTHING</button>
+          <button class="filter-btn" type="button" data-filter="footwear">FOOTWEAR</button>
+          <button class="filter-btn" type="button" data-filter="accessories">ACCESSORIES</button>
         </div>
 
         <div class="search-box">
           <input type="search" id="productSearch"
             placeholder="Search products..." aria-label="Search products">
-          <span>⌕</span>
         </div>
       </div>
 
@@ -133,7 +138,6 @@
       </div>
     </section>
 
-    <!-- COLLECTIONS -->
     <section class="collections-section section-padding" id="collections">
       <div class="section-heading">
         <span class="eyebrow">SHOP YOUR WAY</span>
@@ -143,10 +147,7 @@
 
       <div class="collection-grid">
         <article class="collection-card" data-collection="clothing">
-          <img
-            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
-            alt="Clothing collection"
-            onerror="this.src='https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85'">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85" alt="Clothing collection">
           <div class="collection-overlay">
             <span>THE STYLE EDIT</span>
             <h3>Clothing</h3>
@@ -155,10 +156,7 @@
         </article>
 
         <article class="collection-card" data-collection="footwear">
-          <img
-            src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85"
-            alt="Footwear collection"
-            onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85'">
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85" alt="Footwear collection">
           <div class="collection-overlay">
             <span>STEP INTO STYLE</span>
             <h3>Footwear</h3>
@@ -167,10 +165,7 @@
         </article>
 
         <article class="collection-card" data-collection="accessories">
-          <img
-            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85"
-            alt="Bags and accessories"
-            onerror="this.src='https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85'">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85" alt="Accessories collection">
           <div class="collection-overlay">
             <span>COMPLETE YOUR LOOK</span>
             <h3>Accessories</h3>
@@ -180,13 +175,23 @@
       </div>
     </section>
 
-    <!-- CUSTOM STITCHING -->
+    <section class="experience-section section-padding">
+      <div class="experience-inner">
+        <span class="eyebrow">MORE THAN FASHION</span>
+        <h2>The JENNIEYEBS Experience</h2>
+        <p>
+          Personal style is about expressing who you are.
+          Discover carefully selected fashion, beautiful footwear,
+          finishing accessories and custom stitching enquiries.
+          Let every look tell your story.
+        </p>
+        <a href="#shop" class="btn btn-primary">DISCOVER YOUR STYLE</a>
+      </div>
+    </section>
+
     <section class="stitching-section section-padding" id="stitching">
       <div class="stitching-image">
-        <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85"
-          alt="Fashion design and tailoring"
-          onerror="this.src='https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=1000&q=85'">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85" alt="Fashion design and tailoring">
       </div>
 
       <div class="stitching-content">
@@ -197,21 +202,16 @@
           ideas to life. Contact us about custom stitching,
           personal designs and outfit enquiries.
         </p>
-
         <ul>
           <li>Custom outfit enquiries</li>
           <li>Personal design discussions</li>
           <li>Style and fitting consultations</li>
         </ul>
-
         <a href="https://wa.me/233558224251?text=Hello%20JENNIEYEBS%2C%20I%20would%20like%20to%20enquire%20about%20custom%20stitching."
-          class="btn btn-primary" target="_blank" rel="noopener">
-          DISCUSS YOUR DESIGN
-        </a>
+          class="btn btn-primary" target="_blank" rel="noopener">DISCUSS YOUR DESIGN</a>
       </div>
     </section>
 
-    <!-- PROMO -->
     <section class="promo-banner">
       <div class="promo-content">
         <span>YOUR WARDROBE DESERVES SOMETHING SPECIAL</span>
@@ -221,15 +221,10 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about-section section-padding" id="about">
       <div class="about-image">
-        <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
-          alt="Fashion wardrobe"
-          onerror="this.src='https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85'">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85" alt="Fashion wardrobe">
       </div>
-
       <div class="about-content">
         <span class="eyebrow">A LITTLE ABOUT US</span>
         <h2>Style Is More Than What You Wear.</h2>
@@ -245,7 +240,6 @@
       </div>
     </section>
 
-    <!-- HOW TO BUY -->
     <section class="how-to-buy section-padding" id="how-to-buy">
       <div class="section-heading">
         <span class="eyebrow">SIMPLE AND CONVENIENT</span>
@@ -261,7 +255,6 @@
       </div>
     </section>
 
-    <!-- POLICIES -->
     <section class="policies-section section-padding" id="policies">
       <div class="section-heading">
         <span class="eyebrow">SHOP WITH CONFIDENCE</span>
@@ -277,11 +270,9 @@
         <article class="policy-card"><h3>Custom Stitching</h3><p>Custom designs require agreement on measurements, materials, design details, price and completion time.</p></article>
         <article class="policy-card"><h3>Privacy</h3><p>Your contact and delivery information is used to communicate about your order.</p></article>
       </div>
-
       <p class="policy-note">Confirm the final store policies with the business owner before launch.</p>
     </section>
 
-    <!-- FAQ -->
     <section class="faq-section section-padding" id="faq">
       <div class="section-heading">
         <span class="eyebrow">NEED TO KNOW MORE?</span>
@@ -297,7 +288,45 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <section class="reviews-section section-padding" id="reviews">
+      <div class="section-heading">
+        <span class="eyebrow">CUSTOMER EXPERIENCES</span>
+        <h2>What Our Customers Say</h2>
+        <p>Share your JENNIEYEBS shopping experience.</p>
+      </div>
+
+      <div class="reviews-layout">
+        <form class="review-form-card" id="reviewForm">
+          <h3>Leave a Review</h3>
+
+          <label for="reviewName">Your name</label>
+          <input id="reviewName" name="reviewName" type="text" placeholder="Enter your name" required>
+
+          <label for="reviewRating">Your rating</label>
+          <select id="reviewRating" name="reviewRating" required>
+            <option value="5">★★★★★ — Excellent</option>
+            <option value="4">★★★★☆ — Very good</option>
+            <option value="3">★★★☆☆ — Good</option>
+            <option value="2">★★☆☆☆ — Fair</option>
+            <option value="1">★☆☆☆☆ — Poor</option>
+          </select>
+
+          <label for="reviewMessage">Your experience</label>
+          <textarea id="reviewMessage" name="reviewMessage" rows="4" placeholder="Write your review..." required></textarea>
+
+          <button class="btn btn-primary" type="submit">SUBMIT REVIEW</button>
+        </form>
+
+        <div class="review-display">
+          <h3>Customer Reviews</h3>
+          <div class="reviews-list" id="reviewsList">
+            <p class="reviews-empty">Be the first to share your experience.</p>
+          </div>
+        </div>
+      </div>
+      <p class="review-note">Reviews submitted in this demo are saved in this browser only. A shared customer review system will require an online database.</p>
+    </section>
+
     <section class="contact-section section-padding" id="contact">
       <div class="contact-content">
         <span class="eyebrow">WE WOULD LOVE TO HEAR FROM YOU</span>
@@ -329,24 +358,30 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-main">
       <div class="footer-brand">
-        <a href="#home" class="footer-logo">JENNIEYEBS</a>
+        <a href="#home" class="footer-logo">
+          <span class="footer-logo-mark">JY</span>
+          <span>JENNIEYEBS</span>
+        </a>
         <p>Fashion, footwear and custom style. Discover your look and express your confidence.</p>
       </div>
 
       <div class="footer-links">
         <h4>EXPLORE</h4>
-        <a href="#home">Home</a><a href="#shop">Shop</a>
-        <a href="#collections">Collections</a><a href="#stitching">Custom Stitching</a>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#collections">Collections</a>
+        <a href="#stitching">Custom Stitching</a>
       </div>
 
       <div class="footer-links">
         <h4>INFORMATION</h4>
-        <a href="#how-to-buy">How To Buy</a><a href="#policies">Shopping Policies</a>
-        <a href="#faq">FAQs</a><a href="#contact">Contact</a>
+        <a href="#how-to-buy">How To Buy</a>
+        <a href="#policies">Shopping Policies</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
       </div>
 
       <div class="footer-contact">
@@ -362,18 +397,18 @@
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP -->
   <a href="https://wa.me/233558224251" class="whatsapp-button"
     id="whatsappButton" target="_blank" rel="noopener"
     aria-label="Chat with JENNIEYEBS on WhatsApp">☏</a>
 
-  <!-- CART OVERLAY -->
   <div class="cart-overlay" id="cartOverlay"></div>
 
-  <!-- CART DRAWER -->
   <aside class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
-      <div><span class="eyebrow">YOUR SELECTION</span><h2>Shopping Bag</h2></div>
+      <div>
+        <span class="eyebrow">YOUR SELECTION</span>
+        <h2>Shopping Bag</h2>
+      </div>
       <button class="modal-close" id="closeCart" type="button" aria-label="Close bag">×</button>
     </div>
 
@@ -382,14 +417,16 @@
     </div>
 
     <div class="cart-footer">
-      <div class="cart-total-row"><span>Estimated Total</span><strong id="cartTotal">GH₵ 0.00</strong></div>
+      <div class="cart-total-row">
+        <span>Estimated Total</span>
+        <strong id="cartTotal">GH₵ 0.00</strong>
+      </div>
       <p class="cart-disclaimer">Delivery charges and final order details will be confirmed on WhatsApp.</p>
       <button class="btn btn-primary checkout-button" id="checkoutButton" type="button">PROCEED TO CHECKOUT</button>
       <button class="continue-shopping" id="continueShopping" type="button">CONTINUE SHOPPING</button>
     </div>
   </aside>
 
-  <!-- PRODUCT QUICK VIEW -->
   <div class="product-modal" id="productModal">
     <div class="product-modal-box">
       <button class="modal-close" id="closeProductModal" type="button" aria-label="Close">×</button>
@@ -397,7 +434,6 @@
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL -->
   <div class="checkout-modal" id="checkoutModal">
     <div class="checkout-modal-box">
       <button class="modal-close" id="closeCheckout" type="button" aria-label="Close">×</button>
@@ -425,10 +461,12 @@
         </select>
 
         <div class="checkout-total-row">
-          <span>Order total</span><strong id="checkoutTotal">GH₵ 0.00</strong>
+          <span>Order total</span>
+          <strong id="checkoutTotal">GH₵ 0.00</strong>
         </div>
 
         <button class="btn btn-primary" type="submit">SEND ORDER TO WHATSAPP</button>
+        <p class="checkout-disclaimer">No payment is collected on this website. Confirm your order and payment instructions directly with the business.</p>
       </form>
     </div>
   </div>

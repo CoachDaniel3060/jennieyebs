@@ -1,134 +1,149 @@
 
+/* =========================================
+   JENNIEYEBS — STORE WEBSITE
+   ========================================= */
+
 const WHATSAPP_NUMBER = "233558224251";
+const CART_STORAGE_KEY = "jennieyebs-cart";
+const REVIEWS_STORAGE_KEY = "jennieyebs-reviews";
+
+/* SAMPLE PRODUCTS
+   Replace names, prices and photos with your
+   actual products before launching the store.
+*/
 
 const products = [
   {
     id: 1,
-    name: "Elegant Women's Dress",
-    category: "clothing",
-    price: 350,
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85",
-    description: "A stylish dress for special occasions and everyday elegance."
+    name: "Classic Tailored Dress",
+    category: "women",
+    type: "clothing",
+    price: 450,
+    description: "A beautifully tailored dress designed for an elegant, timeless look.",
+    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=900"
   },
   {
     id: 2,
-    name: "Classic Fashion Outfit",
-    category: "clothing",
+    name: "Everyday Luxury Shirt",
+    category: "men",
+    type: "clothing",
     price: 280,
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85",
-    description: "A fashionable outfit for a confident and beautiful look."
+    description: "A refined shirt made for effortless everyday style.",
+    image: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=900"
   },
   {
     id: 3,
-    name: "Ladies Casual Wear",
-    category: "clothing",
-    price: 250,
-    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85",
-    description: "Comfortable casual fashion for your everyday wardrobe."
+    name: "Elegant Two-Piece Set",
+    category: "women",
+    type: "clothing",
+    price: 520,
+    description: "A coordinated outfit for a confident and polished appearance.",
+    image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900"
   },
   {
     id: 4,
-    name: "Elegant Evening Dress",
-    category: "clothing",
-    price: 420,
-    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=85",
-    description: "An elegant look for parties and special occasions."
+    name: "Modern Casual Sneakers",
+    category: "unisex",
+    type: "footwear",
+    price: 390,
+    description: "Comfortable sneakers with a clean, modern finish.",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900"
   },
   {
     id: 5,
-    name: "Stylish Ladies Heels",
-    category: "footwear",
-    price: 320,
-    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85",
-    description: "Stylish footwear to complete your outfit."
+    name: "Statement Handbag",
+    category: "women",
+    type: "accessories",
+    price: 350,
+    description: "A versatile handbag that completes your outfit.",
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900"
   },
   {
     id: 6,
-    name: "Classic Sneakers",
-    category: "footwear",
-    price: 290,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",
-    description: "A versatile pair for casual everyday styling."
+    name: "Men's Smart Trousers",
+    category: "men",
+    type: "clothing",
+    price: 320,
+    description: "Smart, comfortable trousers for work and special occasions.",
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900"
   },
   {
     id: 7,
-    name: "Elegant Ladies Handbag",
-    category: "accessories",
-    price: 260,
-    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85",
-    description: "A beautiful handbag to complement your look."
+    name: "Women's Classic Heels",
+    category: "women",
+    type: "footwear",
+    price: 420,
+    description: "Elegant heels for occasions that call for something special.",
+    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=900"
   },
   {
     id: 8,
-    name: "Fashion Sunglasses",
-    category: "accessories",
-    price: 120,
-    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=85",
-    description: "A stylish accessory for a finishing touch."
+    name: "Premium Men's Jacket",
+    category: "men",
+    type: "clothing",
+    price: 580,
+    description: "A versatile jacket with a clean, sophisticated silhouette.",
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900"
   },
   {
     id: 9,
-    name: "Ladies Fashion Bag",
-    category: "accessories",
-    price: 300,
-    image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=85",
-    description: "A versatile fashion bag for different occasions."
+    name: "Minimalist Wristwatch",
+    category: "unisex",
+    type: "accessories",
+    price: 260,
+    description: "A simple accessory that adds a refined finishing touch.",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900"
   },
   {
     id: 10,
-    name: "Beautiful Casual Dress",
-    category: "clothing",
-    price: 310,
-    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=700&q=85",
-    description: "A beautiful addition to your fashion collection."
+    name: "Elegant Evening Outfit",
+    category: "women",
+    type: "clothing",
+    price: 650,
+    description: "An elegant look for celebrations and memorable occasions.",
+    image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=900"
   },
   {
     id: 11,
-    name: "Modern Fashion Shoes",
-    category: "footwear",
-    price: 350,
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",
-    description: "Modern footwear designed to complement your style."
+    name: "Classic Leather Shoes",
+    category: "men",
+    type: "footwear",
+    price: 480,
+    description: "Classic footwear designed to complement smart outfits.",
+    image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=900"
   },
   {
     id: 12,
-    name: "Chic Fashion Accessory",
-    category: "accessories",
-    price: 150,
-    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85",
-    description: "A finishing touch for your favourite outfit."
+    name: "Everyday Style Sunglasses",
+    category: "unisex",
+    type: "accessories",
+    price: 180,
+    description: "A stylish finishing touch for everyday looks.",
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900"
   }
 ];
 
-let activeCategory = "all";
-let searchTerm = "";
-let cart = [];
-
-try {
-  const savedCart = JSON.parse(localStorage.getItem("jennieyebs-cart") || "[]");
-  if (Array.isArray(savedCart)) cart = savedCart;
-} catch (error) {
-  cart = [];
-}
+/* =========================================
+   ELEMENTS
+   ========================================= */
 
 const productGrid = document.getElementById("productGrid");
-const emptyProducts = document.getElementById("emptyProducts");
-const filterButtons = document.getElementById("filterButtons");
 const productSearch = document.getElementById("productSearch");
+const emptyProducts = document.getElementById("emptyProducts");
 
-const openCartButton = document.getElementById("openCart");
-const closeCartButton = document.getElementById("closeCart");
+const cartButton = document.getElementById("cartButton");
 const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
-const cartItems = document.getElementById("cartItems");
+const closeCartButton = document.getElementById("closeCart");
+const cartItemsContainer = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
 const checkoutButton = document.getElementById("checkoutButton");
 const continueShopping = document.getElementById("continueShopping");
 
 const productModal = document.getElementById("productModal");
-const productModalContent = document.getElementById("productModalContent");
 const closeProductModal = document.getElementById("closeProductModal");
+const productModalContent = document.getElementById("productModalContent");
 
 const checkoutModal = document.getElementById("checkoutModal");
 const closeCheckout = document.getElementById("closeCheckout");
@@ -136,90 +151,157 @@ const checkoutForm = document.getElementById("checkoutForm");
 const checkoutTotal = document.getElementById("checkoutTotal");
 
 const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const mainNav = document.getElementById("mainNav");
+
+let selectedFilter = "all";
+let cart = loadCart();
+
+/* =========================================
+   HELPERS
+   ========================================= */
 
 function formatPrice(amount) {
-  return `GH₵ ${Number(amount).toFixed(2)}`;
+  return new Intl.NumberFormat("en-GH", {
+    style: "currency",
+    currency: "GHS",
+    maximumFractionDigits: 2
+  }).format(amount);
+}
+
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
 }
 
 function saveCart() {
-  try {
-    localStorage.setItem("jennieyebs-cart", JSON.stringify(cart));
-  } catch (error) {
-    console.warn("Your shopping bag could not be saved.", error);
-  }
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
 }
 
-function getProduct(id) {
-  return products.find(product => product.id === Number(id));
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
 }
+
+/* =========================================
+   PRODUCT DISPLAY
+   ========================================= */
 
 function renderProducts() {
-  const filteredProducts = products.filter(product => {
-    const matchesCategory =
-      activeCategory === "all" || product.category === activeCategory;
+  if (!productGrid) return;
 
+  const searchTerm = productSearch
+    ? productSearch.value.trim().toLowerCase()
+    : "";
+
+  const filteredProducts = products.filter(product => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchTerm) ||
-      product.category.toLowerCase().includes(searchTerm);
+      product.description.toLowerCase().includes(searchTerm) ||
+      product.category.toLowerCase().includes(searchTerm) ||
+      product.type.toLowerCase().includes(searchTerm);
 
-    return matchesCategory && matchesSearch;
+    const filter = selectedFilter.toLowerCase();
+
+    const matchesFilter =
+      filter === "all" ||
+      product.category === filter ||
+      product.type === filter ||
+      (filter === "accessories" && product.type === "accessories") ||
+      (filter === "footwear" && product.type === "footwear");
+
+    return matchesSearch && matchesFilter;
   });
 
-  productGrid.innerHTML = "";
-
-  if (filteredProducts.length === 0) {
-    emptyProducts.style.display = "block";
-    return;
-  }
-
-  emptyProducts.style.display = "none";
-
-  filteredProducts.forEach(product => {
-    const card = document.createElement("article");
-    card.className = "product-card";
-
-    card.innerHTML = `
+  productGrid.innerHTML = filteredProducts.map(product => `
+    <article class="product-card">
       <div class="product-image">
         <img
           src="${product.image}"
-          alt="${product.name}"
+          alt="${escapeHTML(product.name)}"
           loading="lazy"
-          onerror="this.onerror=null;this.src='https://placehold.co/700x900/f1eee8/333333?text=JENNIEYEBS';"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x750/f4f0e9/333333?text=JENNIEYEBS';"
         >
+        <button
+          class="quick-view-button"
+          type="button"
+          data-view="${product.id}"
+          aria-label="View ${escapeHTML(product.name)}"
+        >Quick view</button>
       </div>
 
       <div class="product-info">
-        <span class="product-category">${product.category}</span>
-        <h3>${product.name}</h3>
-        <div class="product-price">${formatPrice(product.price)}</div>
+        <span class="product-category">${escapeHTML(product.type)}</span>
+        <h3>${escapeHTML(product.name)}</h3>
+        <p class="product-price">${formatPrice(product.price)}</p>
 
         <div class="product-actions">
-          <button type="button" data-add="${product.id}">ADD TO BAG</button>
-          <button type="button" data-view="${product.id}">VIEW</button>
+          <button
+            class="add-to-cart"
+            type="button"
+            data-add="${product.id}"
+          >Add to bag</button>
         </div>
       </div>
-    `;
+    </article>
+  `).join("");
 
-    productGrid.appendChild(card);
-  });
+  if (emptyProducts) {
+    emptyProducts.hidden = filteredProducts.length > 0;
+  }
 }
 
-function setCategory(category) {
-  activeCategory = category;
+/* Filter buttons */
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedFilter = button.dataset.filter || "all";
 
-  document.querySelectorAll("#filterButtons button").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.category === category
-    );
+    document.querySelectorAll("[data-filter]").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    renderProducts();
   });
+});
 
-  renderProducts();
-}
+/* Collection cards */
+document.querySelectorAll("[data-collection]").forEach(card => {
+  card.addEventListener("click", () => {
+    selectedFilter = card.dataset.collection || "all";
 
-function addToCart(id) {
-  const product = getProduct(id);
+    document.querySelectorAll("[data-filter]").forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.filter === selectedFilter
+      );
+    });
+
+    renderProducts();
+
+    document.getElementById("shop")?.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+/* Search */
+productSearch?.addEventListener("input", renderProducts);
+
+/* =========================================
+   SHOPPING CART
+   ========================================= */
+
+function addToCart(productId) {
+  const product = products.find(item => item.id === Number(productId));
   if (!product) return;
 
   const existingItem = cart.find(item => item.id === product.id);
@@ -235,122 +317,151 @@ function addToCart(id) {
 
   saveCart();
   renderCart();
-  openCart();
+  showToast(`${product.name} added to your bag.`);
 }
 
-function changeQuantity(id, change) {
-  const item = cart.find(entry => entry.id === Number(id));
+function changeQuantity(productId, amount) {
+  const item = cart.find(entry => entry.id === Number(productId));
   if (!item) return;
 
-  item.quantity += change;
+  item.quantity += amount;
 
   if (item.quantity <= 0) {
-    cart = cart.filter(entry => entry.id !== Number(id));
+    cart = cart.filter(entry => entry.id !== Number(productId));
   }
 
   saveCart();
   renderCart();
 }
 
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== Number(id));
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== Number(productId));
   saveCart();
   renderCart();
-}
-
-function calculateTotal() {
-  return cart.reduce((total, item) => {
-    const product = getProduct(item.id);
-    return total + (product ? product.price * item.quantity : 0);
-  }, 0);
 }
 
 function renderCart() {
-  const validCart = cart.filter(item => getProduct(item.id));
-  cart = validCart;
-
   const totalQuantity = cart.reduce(
-    (total, item) => total + item.quantity,
+    (sum, item) => sum + item.quantity,
     0
   );
 
-  cartCount.textContent = totalQuantity;
-  cartTotal.textContent = formatPrice(calculateTotal());
+  const totalPrice = cart.reduce((sum, item) => {
+    const product = products.find(product => product.id === item.id);
+    return sum + (product ? product.price * item.quantity : 0);
+  }, 0);
 
-  if (checkoutTotal) {
-    checkoutTotal.textContent = formatPrice(calculateTotal());
-  }
+  if (cartCount) cartCount.textContent = totalQuantity;
+  if (cartTotal) cartTotal.textContent = formatPrice(totalPrice);
+  if (checkoutTotal) checkoutTotal.textContent = formatPrice(totalPrice);
+
+  if (!cartItemsContainer) return;
 
   if (cart.length === 0) {
-    cartItems.innerHTML = `
-      <div class="cart-empty">
+    cartItemsContainer.innerHTML = `
+      <div class="empty-cart">
         <p>Your shopping bag is empty.</p>
+        <p>Discover something you love.</p>
       </div>
     `;
-    return;
-  }
+  } else {
+    cartItemsContainer.innerHTML = cart.map(item => {
+      const product = products.find(entry => entry.id === item.id);
+      if (!product) return "";
 
-  cartItems.innerHTML = cart.map(item => {
-    const product = getProduct(item.id);
+      return `
+        <div class="cart-item">
+          <img
+            src="${product.image}"
+            alt="${escapeHTML(product.name)}"
+            onerror="this.onerror=null;this.src='https://placehold.co/120x140/f4f0e9/333333?text=JY';"
+          >
 
-    return `
-      <div class="cart-item">
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-          onerror="this.onerror=null;this.src='https://placehold.co/200x250/f1eee8/333333?text=JENNIEYEBS';"
-        >
+          <div class="cart-item-info">
+            <h4>${escapeHTML(product.name)}</h4>
+            <p>${formatPrice(product.price)}</p>
 
-        <div>
-          <h4>${product.name}</h4>
-          <p>${formatPrice(product.price)}</p>
+            <div class="cart-quantity">
+              <button type="button" data-decrease="${product.id}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-increase="${product.id}" aria-label="Increase quantity">+</button>
+            </div>
 
-          <div class="cart-item-controls">
-            <button type="button" data-minus="${product.id}">−</button>
-            <span>${item.quantity}</span>
-            <button type="button" data-plus="${product.id}">+</button>
-            <button type="button" data-remove="${product.id}">Remove</button>
+            <button
+              class="remove-item"
+              type="button"
+              data-remove="${product.id}"
+            >Remove</button>
           </div>
         </div>
-      </div>
-    `;
-  }).join("");
+      `;
+    }).join("");
+  }
+
+  if (checkoutButton) {
+    checkoutButton.disabled = cart.length === 0;
+  }
 }
 
 function openCart() {
-  cartDrawer.classList.add("open");
-  cartOverlay.classList.add("open");
+  cartDrawer?.classList.add("open");
+  cartOverlay?.classList.add("open");
   document.body.classList.add("no-scroll");
 }
 
-function closeCart() {
-  cartDrawer.classList.remove("open");
-  cartOverlay.classList.remove("open");
+function closeCartDrawer() {
+  cartDrawer?.classList.remove("open");
+  cartOverlay?.classList.remove("open");
   document.body.classList.remove("no-scroll");
 }
 
-function showProduct(id) {
-  const product = getProduct(id);
-  if (!product) return;
+cartButton?.addEventListener("click", openCart);
+closeCartButton?.addEventListener("click", closeCartDrawer);
+cartOverlay?.addEventListener("click", closeCartDrawer);
+continueShopping?.addEventListener("click", closeCartDrawer);
+
+/* Product and cart button actions */
+document.addEventListener("click", event => {
+  const addButton = event.target.closest("[data-add]");
+  const viewButton = event.target.closest("[data-view]");
+  const increaseButton = event.target.closest("[data-increase]");
+  const decreaseButton = event.target.closest("[data-decrease]");
+  const removeButton = event.target.closest("[data-remove]");
+
+  if (addButton) addToCart(addButton.dataset.add);
+  if (viewButton) openProductModal(viewButton.dataset.view);
+  if (increaseButton) changeQuantity(increaseButton.dataset.increase, 1);
+  if (decreaseButton) changeQuantity(decreaseButton.dataset.decrease, -1);
+  if (removeButton) removeFromCart(removeButton.dataset.remove);
+});
+
+/* =========================================
+   PRODUCT QUICK VIEW
+   ========================================= */
+
+function openProductModal(productId) {
+  const product = products.find(item => item.id === Number(productId));
+  if (!product || !productModal || !productModalContent) return;
 
   productModalContent.innerHTML = `
     <div class="modal-product-layout">
       <img
         src="${product.image}"
-        alt="${product.name}"
-        onerror="this.onerror=null;this.src='https://placehold.co/700x900/f1eee8/333333?text=JENNIEYEBS';"
+        alt="${escapeHTML(product.name)}"
+        onerror="this.onerror=null;this.src='https://placehold.co/600x750/f4f0e9/333333?text=JENNIEYEBS';"
       >
 
-      <div>
-        <span class="product-category">${product.category}</span>
-        <h2>${product.name}</h2>
-        <div class="modal-price">${formatPrice(product.price)}</div>
-        <p>${product.description}</p>
+      <div class="modal-product-details">
+        <span class="product-category">${escapeHTML(product.type)}</span>
+        <h2>${escapeHTML(product.name)}</h2>
+        <p class="modal-price">${formatPrice(product.price)}</p>
+        <p>${escapeHTML(product.description)}</p>
 
-        <button class="btn btn-primary" type="button"
-          data-modal-add="${product.id}">
-          ADD TO BAG
-        </button>
+        <button
+          class="add-to-cart"
+          type="button"
+          data-add="${product.id}"
+        >Add to bag</button>
       </div>
     </div>
   `;
@@ -360,166 +471,308 @@ function showProduct(id) {
 }
 
 function closeProduct() {
-  productModal.classList.remove("open");
+  productModal?.classList.remove("open");
   document.body.classList.remove("no-scroll");
 }
 
+closeProductModal?.addEventListener("click", closeProduct);
+
+productModal?.addEventListener("click", event => {
+  if (event.target === productModal) closeProduct();
+});
+
+/* =========================================
+   CHECKOUT — WHATSAPP ORDER
+   ========================================= */
+
 function openCheckout() {
   if (cart.length === 0) {
-    alert("Your shopping bag is empty. Add a product first.");
+    showToast("Your shopping bag is empty.");
     return;
   }
 
-  closeCart();
-  checkoutTotal.textContent = formatPrice(calculateTotal());
-  checkoutModal.classList.add("open");
+  closeCartDrawer();
+  checkoutModal?.classList.add("open");
   document.body.classList.add("no-scroll");
 }
 
 function closeCheckoutModal() {
-  checkoutModal.classList.remove("open");
+  checkoutModal?.classList.remove("open");
   document.body.classList.remove("no-scroll");
 }
 
-function sendOrderToWhatsApp(event) {
+checkoutButton?.addEventListener("click", openCheckout);
+closeCheckout?.addEventListener("click", closeCheckoutModal);
+
+checkoutModal?.addEventListener("click", event => {
+  if (event.target === checkoutModal) closeCheckoutModal();
+});
+
+checkoutForm?.addEventListener("submit", event => {
   event.preventDefault();
 
   if (cart.length === 0) {
-    alert("Your shopping bag is empty.");
-    closeCheckoutModal();
+    showToast("Your shopping bag is empty.");
     return;
   }
 
-  const customerName = document.getElementById("customerName").value.trim();
-  const customerPhone = document.getElementById("customerPhone").value.trim();
-  const customerAddress = document.getElementById("customerAddress").value.trim();
-  const paymentMethod = document.getElementById("paymentMethod").value;
+  if (!checkoutForm.reportValidity()) return;
 
-  if (!customerName || !customerPhone || !customerAddress || !paymentMethod) {
-    alert("Please complete all the checkout fields.");
-    return;
-  }
+  const customerName = document.getElementById("customerName")?.value.trim() || "";
+  const customerPhone = document.getElementById("customerPhone")?.value.trim() || "";
+  const customerAddress = document.getElementById("customerAddress")?.value.trim() || "";
+  const paymentMethod = document.getElementById("paymentMethod")?.value || "To be confirmed";
+
+  const total = cart.reduce((sum, item) => {
+    const product = products.find(entry => entry.id === item.id);
+    return sum + (product ? product.price * item.quantity : 0);
+  }, 0);
 
   const orderLines = cart.map(item => {
-    const product = getProduct(item.id);
-    return `${product.name} x ${item.quantity} — ${formatPrice(product.price * item.quantity)}`;
-  });
+    const product = products.find(entry => entry.id === item.id);
+    if (!product) return "";
+
+    return `• ${product.name} x ${item.quantity} — ${formatPrice(product.price * item.quantity)}`;
+  }).filter(Boolean);
 
   const message = [
-    "Hello JENNIEYEBS! I would like to place an order.",
+    "Hello JENNIEYEBS!",
+    "",
+    "I would like to place an order:",
+    "",
+    ...orderLines,
+    "",
+    `Total: ${formatPrice(total)}`,
     "",
     "CUSTOMER DETAILS",
     `Name: ${customerName}`,
     `Phone: ${customerPhone}`,
     `Delivery address: ${customerAddress}`,
-    `Preferred payment: ${paymentMethod}`,
+    `Preferred payment method: ${paymentMethod}`,
     "",
-    "ORDER DETAILS",
-    ...orderLines,
-    "",
-    `ORDER TOTAL: ${formatPrice(calculateTotal())}`,
-    "",
-    "Please confirm availability, delivery charges and payment instructions. Thank you."
+    "Please confirm my order and the next steps. Thank you."
   ].join("\n");
 
   const whatsappURL =
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
   window.open(whatsappURL, "_blank", "noopener,noreferrer");
+
+  cart = [];
+  saveCart();
+  renderCart();
+  checkoutForm.reset();
+  closeCheckoutModal();
+
+  showToast("Your order message is ready in WhatsApp.");
+});
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+
+function closeMobileMenu() {
+  mainNav?.classList.remove("open");
+  menuToggle?.classList.remove("active");
+  menuToggle?.setAttribute("aria-expanded", "false");
 }
 
-function closeNavigation() {
-  navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
+menuToggle?.addEventListener("click", () => {
+  const isOpen = mainNav?.classList.toggle("open");
+  menuToggle.classList.toggle("active", Boolean(isOpen));
+  menuToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+});
+
+mainNav?.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+/* =========================================
+   GHANA DATE AND TIME
+   ========================================= */
+
+function updateGhanaClock() {
+  const clock = document.getElementById("ghanaClock");
+  if (!clock) return;
+
+  const now = new Date();
+
+  clock.textContent = new Intl.DateTimeFormat("en-GH", {
+    timeZone: "Africa/Accra",
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  }).format(now);
 }
 
-filterButtons.addEventListener("click", event => {
-  const button = event.target.closest("button[data-category]");
-  if (!button) return;
+updateGhanaClock();
+setInterval(updateGhanaClock, 1000);
 
-  setCategory(button.dataset.category);
-});
+/* =========================================
+   ROTATING ANNOUNCEMENTS
+   ========================================= */
 
-productSearch.addEventListener("input", event => {
-  searchTerm = event.target.value.trim().toLowerCase();
-  renderProducts();
-});
+const announcements = [
+  "Welcome to JENNIEYEBS — Style with confidence.",
+  "Discover timeless fashion and everyday elegance.",
+  "Need a custom outfit? Get in touch with our team.",
+  "Your style. Your confidence. Your JENNIEYEBS experience.",
+  "Shop your favourites and order easily through WhatsApp."
+];
 
-productGrid.addEventListener("click", event => {
-  const addButton = event.target.closest("[data-add]");
-  const viewButton = event.target.closest("[data-view]");
+let announcementIndex = 0;
 
-  if (addButton) addToCart(addButton.dataset.add);
-  if (viewButton) showProduct(viewButton.dataset.view);
-});
+function rotateAnnouncement() {
+  const announcementText = document.getElementById("announcementText");
+  if (!announcementText) return;
 
-cartItems.addEventListener("click", event => {
-  const minus = event.target.closest("[data-minus]");
-  const plus = event.target.closest("[data-plus]");
-  const remove = event.target.closest("[data-remove]");
+  announcementText.style.opacity = "0";
 
-  if (minus) changeQuantity(minus.dataset.minus, -1);
-  if (plus) changeQuantity(plus.dataset.plus, 1);
-  if (remove) removeFromCart(remove.dataset.remove);
-});
+  setTimeout(() => {
+    announcementIndex = (announcementIndex + 1) % announcements.length;
+    announcementText.textContent = announcements[announcementIndex];
+    announcementText.style.opacity = "1";
+  }, 250);
+}
 
-productModalContent.addEventListener("click", event => {
-  const button = event.target.closest("[data-modal-add]");
-  if (!button) return;
+setInterval(rotateAnnouncement, 10000);
 
-  const id = button.dataset.modalAdd;
-  closeProduct();
-  addToCart(id);
-});
+/* =========================================
+   CUSTOMER REVIEWS
+   Reviews are saved in this browser only.
+   A shared public review system needs a database.
+   ========================================= */
 
-document.querySelectorAll("[data-collection]").forEach(card => {
-  card.addEventListener("click", () => {
-    const category = card.dataset.collection;
-    setCategory(category);
-    document.getElementById("shop").scrollIntoView({
-      behavior: "smooth"
-    });
+function loadReviews() {
+  try {
+    const reviews = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY));
+    return Array.isArray(reviews) ? reviews : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveReviews(reviews) {
+  localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(reviews));
+}
+
+function renderReviews() {
+  const reviewsList = document.getElementById("reviewsList");
+  if (!reviewsList) return;
+
+  const reviews = loadReviews();
+
+  if (reviews.length === 0) {
+    reviewsList.innerHTML = `
+      <p class="no-reviews">Be the first to share your JENNIEYEBS experience.</p>
+    `;
+    return;
+  }
+
+  reviewsList.innerHTML = reviews.map(review => `
+    <article class="review-card">
+      <div class="review-stars" aria-label="${review.rating} out of 5 stars">
+        ${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}
+      </div>
+      <p>${escapeHTML(review.message)}</p>
+      <strong>${escapeHTML(review.name)}</strong>
+      <small>${escapeHTML(review.date)}</small>
+    </article>
+  `).join("");
+}
+
+const reviewForm = document.getElementById("reviewForm");
+
+reviewForm?.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const name = document.getElementById("reviewName")?.value.trim() || "";
+  const rating = Number(document.getElementById("reviewRating")?.value || 5);
+  const message = document.getElementById("reviewMessage")?.value.trim() || "";
+
+  if (!name || !message || rating < 1 || rating > 5) {
+    showToast("Please complete all review fields.");
+    return;
+  }
+
+  const reviews = loadReviews();
+
+  reviews.unshift({
+    name,
+    rating,
+    message,
+    date: new Intl.DateTimeFormat("en-GH", {
+      timeZone: "Africa/Accra",
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    }).format(new Date())
   });
+
+  saveReviews(reviews.slice(0, 30));
+  reviewForm.reset();
+  renderReviews();
+  showToast("Thank you for sharing your review!");
 });
 
-openCartButton.addEventListener("click", openCart);
-closeCartButton.addEventListener("click", closeCart);
-cartOverlay.addEventListener("click", closeCart);
-continueShopping.addEventListener("click", closeCart);
+/* =========================================
+   FOOTER YEAR
+   ========================================= */
 
-checkoutButton.addEventListener("click", openCheckout);
-closeProductModal.addEventListener("click", closeProduct);
-closeCheckout.addEventListener("click", closeCheckoutModal);
+const yearElement = document.getElementById("year");
 
-productModal.addEventListener("click", event => {
-  if (event.target === productModal) closeProduct();
-});
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
-checkoutModal.addEventListener("click", event => {
-  if (event.target === checkoutModal) closeCheckoutModal();
-});
+/* =========================================
+   TOAST NOTIFICATIONS
+   ========================================= */
 
-checkoutForm.addEventListener("submit", sendOrderToWhatsApp);
+function showToast(message) {
+  let toast = document.getElementById("siteToast");
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "siteToast";
+    toast.className = "site-toast";
+    document.body.appendChild(toast);
+  }
 
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", closeNavigation);
-});
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(showToast.timeout);
+
+  showToast.timeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2800);
+}
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+   ========================================= */
 
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    closeCart();
-    closeProduct();
-    closeCheckoutModal();
-    closeNavigation();
-  }
+  if (event.key !== "Escape") return;
+
+  closeCartDrawer();
+  closeProduct();
+  closeCheckoutModal();
+  closeMobileMenu();
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+/* =========================================
+   START WEBSITE
+   ========================================= */
 
 renderProducts();
 renderCart();
+renderReviews();
+
+console.log("JENNIEYEBS website loaded successfully.");
